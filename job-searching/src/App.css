@@ -37,3 +37,19 @@
   }
 }
 
+button{
+  /*width:100%;*/
+  margin-top: 10px;
+}
+
+
+#root{
+  display: flex;
+  justify-content: center;
+  margin-top:20px;
+}
+
+#card{
+  height:0;
+  width: 100%;
+}

@@ -9,29 +9,24 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
-import Results from './Results';
+import Results from "./Results";
+import GridList from "@material-ui/core/GridList";
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    // maxWidth: 345,
+    marginBottom: 20,
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    overflow: "hidden",
   },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 500,
+  gridList: {
+    width: 340,
+    height: 450,
   },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-}));
+});
+
 
 function JobSearch() {
   const classes = useStyles();
@@ -39,8 +34,6 @@ function JobSearch() {
   const [location, setLocation] = useState("");
   const [jobs, setJob] = useState(null);
   const [err, setErr] = useState(null);
-  
-
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -56,7 +49,7 @@ function JobSearch() {
 
   return (
     <div>
-      <form className={classes.root} onSubmit={handleSumbit}>
+      <form onSubmit={handleSumbit}>
         <InputLabel htmlFor="position">Enter position</InputLabel>
         <Input
           id="position"
@@ -83,14 +76,14 @@ function JobSearch() {
           Search
         </Button>
       </form>
-      <div id='row' className={classes.root}>
+      <div id="row" className={classes.root}>
         {err && <p>{err}</p>}
         {jobs &&
           jobs.map((job) => {
             return (
               <React.Fragment key={job.id}>
-                
-                  <Card className={classes.root}>
+                <GridList cellHeight={160} className={classes.gridList}>
+                  <Card id='card'>
                     <CardMedia
                       component="img"
                       src={job.company_logo}
@@ -100,23 +93,21 @@ function JobSearch() {
                       <Typography gutterBottom variant="h5" component="h2">
                         Job Title: {job.title}
                       </Typography>
-  
+
                       <Typography gutterBottom variant="h5" component="h2">
                         Company Title: {job.company}
                       </Typography>
-  
+
                       <Typography gutterBottom variant="h5" component="h2">
                         Location:{job.location}
                       </Typography>
                     </CardContent>
-          
+
                     <CardActions>
                       <Link href={job.url}>Job link</Link>
                     </CardActions>
-                    
                   </Card>
-    
- 
+                </GridList>
               </React.Fragment>
             );
           })}
@@ -131,6 +122,4 @@ async function getData(position, location) {
   return await response.json();
 }
 
-
 export default JobSearch;
-

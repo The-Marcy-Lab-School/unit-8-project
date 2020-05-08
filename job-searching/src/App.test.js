@@ -14,3 +14,6 @@ describe('will render App Component with JobSearch Component nested', () =>{
     expect(el).toHaveTextContent('Enter position');
   })
 })
+
+describe('when submitted or button is clicked', () =>{
+})
