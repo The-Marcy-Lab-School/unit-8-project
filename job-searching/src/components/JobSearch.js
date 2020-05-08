@@ -5,20 +5,31 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
-
-
-
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
+import Results from './Results';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+    maxWidth: 345,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
 }));
 
@@ -27,7 +38,9 @@ function JobSearch() {
   const [position, setPosition] = useState("");
   const [location, setLocation] = useState("");
   const [jobs, setJob] = useState(null);
-  const [err, setErr] = useState(null)
+  const [err, setErr] = useState(null);
+  
+
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -36,8 +49,8 @@ function JobSearch() {
         setJob(jobArr);
       })
       .catch((err) => {
-        err = 'Sorry there was no result, please try again'
-        setErr(err)
+        err = "Sorry there was an error, please try again";
+        setErr(err);
       });
   };
 
@@ -51,7 +64,6 @@ function JobSearch() {
           value={position}
           onChange={(e) => setPosition(e.target.value)}
           placeholder="python"
-
         />
         <InputLabel htmlFor="location">Enter location</InputLabel>
         <Input
@@ -62,38 +74,49 @@ function JobSearch() {
           placeholder="new york"
         />
 
-        <Button variant="contained" color="primary" type="submit"onClick={handleSumbit} >Search</Button>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          onClick={handleSumbit}
+        >
+          Search
+        </Button>
       </form>
-      <div>
-      {err && (<p>{err}</p>)}
+      <div id='row' className={classes.root}>
+        {err && <p>{err}</p>}
         {jobs &&
           jobs.map((job) => {
             return (
               <React.Fragment key={job.id}>
-                <Card className={classes.root}>
-                  <CardMedia
-                    className={classes.media}
-                    image={job.company_logo}
-                    title="Company logo"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Job Title: {job.title}
-                    </Typography>
-
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Company Title: {job.company}
-                    </Typography>
-
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Location:{job.location}
-                    </Typography>
-                  </CardContent>
-
-                  <CardActions>
-                    <Link href={job.url}>Job link</Link>
-                  </CardActions>
-                </Card>
+                
+                  <Card className={classes.root}>
+                    <CardMedia
+                      component="img"
+                      src={job.company_logo}
+                      alt="Company logo"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Job Title: {job.title}
+                      </Typography>
+  
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Company Title: {job.company}
+                      </Typography>
+  
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Location:{job.location}
+                      </Typography>
+                    </CardContent>
+          
+                    <CardActions>
+                      <Link href={job.url}>Job link</Link>
+                    </CardActions>
+                    
+                  </Card>
+    
+ 
               </React.Fragment>
             );
           })}
@@ -108,13 +131,6 @@ async function getData(position, location) {
   return await response.json();
 }
 
-// getData('python','new york');
 
 export default JobSearch;
 
-// <img
-//                   top
-//                   width="50%"
-//                   src={job.company_logo}
-//                   alt="Company logo"
-//                 />
