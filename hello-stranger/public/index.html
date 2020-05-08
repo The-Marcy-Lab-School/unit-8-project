@@ -6,8 +6,50 @@
     <link rel="icon" href="./AI.png">
     <title>Hello Stranger</title>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.671.0.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      
+    </div>
+    <!-- Polly Code on standby
+    <audio id="audioPlayback" controls>
+        <source id="audioSource" type="audio/mp3" src="">
+      </audio>
+      <button class="btn default" onClick="speakText()">Synthesize</button>
+    <script type="text/javascript">
+
+        // Initialize the Amazon Cognito credentials provider
+        AWS.config.region = 'REGION'; 
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'IDENTITY_POOL_ID'});
+        
+        // Function invoked by button click
+        function speakText() {
+            // Create the JSON parameters for getSynthesizeSpeechUrl
+            var speechParams = {
+                OutputFormat: "mp3",
+                SampleRate: "16000",
+                Text: "Hey how are you?",
+                TextType: "text",
+                VoiceId: "Joanna"
+            };
+            
+            // Create the Polly service object and presigner object
+            var polly = new AWS.Polly({apiVersion: '2016-06-10'});
+            var signer = new AWS.Polly.Presigner(speechParams, polly)
+            console.log(polly)
+            // Create presigned URL of synthesized speech file
+            signer.getSynthesizeSpeechUrl(speechParams, function(error, url) {
+            if (error) {
+                document.getElementById('result').innerHTML = error;
+            } else {
+                document.getElementById('audioSource').src = url;
+                document.getElementById('audioPlayback').load();
+                document.getElementById('result').innerHTML = "Speech ready to play.";
+            }
+          });
+        }
+    </script>
+    -->
   </body>
 </html>

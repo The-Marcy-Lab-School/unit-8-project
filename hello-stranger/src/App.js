@@ -12,10 +12,10 @@ function App() {
     <div className="App">
       <Navbar />
       <ChatProvider>
-        <Messenger />
         <div className="mainArea">
           <Chat />
         </div>
+        <Messenger />
       </ChatProvider>
     </div>
   )
