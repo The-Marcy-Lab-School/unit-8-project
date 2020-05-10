@@ -10,17 +10,22 @@ const Message = (props) => {
   }
    
     return (
-            <div className={props.author}>
-                <div style={props.author === 'You' ? userColor : StrangerColor} className="card">
-                  <div className="card-content">
-                    <p className="subtitle">
-                      {props.author}
-                    </p>
-                    <p className="title">
-                      {props.message}
-                    </p>
+            <div>
+              <div className={`nameContainer${props.author}`}>
+                <p className="subtitle">
+                 {props.author}
+                </p>
+              </div>
+              <div className={props.author}>
+                  <div style={props.author === 'You' ? userColor : StrangerColor} className="card">
+                    <div className="card-content">
+                      <p className="title">
+                        {props.message}
+                      </p>
+                      
+                    </div>
                   </div>
-                </div>
+              </div>
             </div>
         )
 }

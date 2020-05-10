@@ -5,7 +5,9 @@ import App from './App'
 const root = document.getElementById('root')
 
 ReactDOM.render(<App />, root)
-window.scroll(0, document.getElementById('chatBox').scrollHeight)
+
+
+//Enables user to press enter to send message
 const input = document.getElementById("messenger");
 input.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard

@@ -44,7 +44,7 @@ const Messenger = () => {
           </div>
           <button 
           id="submit"
-          style={{display: 'none'}}
+          // style={{display: 'none'}}
           onClick={() => {
           postMessage(message)
           send(key, message)
