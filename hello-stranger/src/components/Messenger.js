@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import {ChatContext} from '../contexts/ChatContext'
 import '../../node_modules/bulma/css/bulma.css'
-const key = 'CC91zkHM9HUug3a3U7m0qbTcETA'
+const key = 'API KEY HERE'
 
 const Messenger = () => {
     const [message, setMessage] = useState("")
