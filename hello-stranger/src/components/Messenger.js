@@ -8,17 +8,17 @@ const Messenger = () => {
     const [message, setMessage] = useState("")
     const [chat, setChat] = useContext(ChatContext)
     
-    const postMessage = (userMessage) => {
-      setChat((chat) => [...chat, {message: userMessage, author: "You"}])
+    const postMessage = (userMessage, prevChat) => {
+      setChat((prevChat) => [...prevChat, {message: userMessage, author: "You"}])
     }
     
-    const send = async (apiKey, userMessage) => {
+    const send = async (apiKey, userMessage, prevChat) => {
         
       try {
         const response = await axios.get(`https://www.cleverbot.com/getreply?key=${apiKey}&input=${userMessage}&callback=ProcessReply&cs=MXYxCTh2MQlBdldZQkJFVkVBWEsJMUZ2MTU4ODc4NjUxMQk2NHZIZXkuCTY0aVlvIG11amVyLgk=`)
         const length = response.data.length 
         const aiResponse = JSON.parse(response.data.substring(13, length - 4)).clever_output
-        setChat((chat) => [...chat, {message: aiResponse, author: "Stranger"}])
+        setChat((prevChat) => [...prevChat, {message: aiResponse, author: "Stranger"}])
         
       } catch (error) {
         console.error(error);
@@ -44,10 +44,9 @@ const Messenger = () => {
           </div>
           <button 
           id="submit"
-          // style={{display: 'none'}}
           onClick={() => {
-          postMessage(message)
-          send(key, message)
+          postMessage(message, chat)
+          send(key, message, chat)
           }} 
           className="button is-primary"
           >Send</button>

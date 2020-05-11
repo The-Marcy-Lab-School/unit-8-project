@@ -1,7 +1,8 @@
 import React from 'react'
 import '../../node_modules/bulma/css/bulma.css'
 
-const Navbar = () => {
+class Navbar extends React.Component {
+  render() {
     return (
             <nav className="navbar is-dark">
               <div className="navbar-start">
@@ -29,6 +30,7 @@ const Navbar = () => {
               </div>
             </nav>
         )
+  }
 }
 
 export default Navbar

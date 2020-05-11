@@ -10,7 +10,7 @@ const Message = (props) => {
   }
    
     return (
-            <div>
+            <div className="Message">
               <div className={`nameContainer${props.author}`}>
                 <p className="subtitle">
                  {props.author}
