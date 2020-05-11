@@ -46,7 +46,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <section>
+      <section className="background">
         <Headers />
         <Form getWeatherData={this.getWeatherData} />
         <Weather

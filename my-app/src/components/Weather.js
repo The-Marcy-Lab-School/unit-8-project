@@ -2,33 +2,40 @@ import React from 'react';
 
 function Weather(props) {
   return (
-    <section>
+    <section className="weatherData">
       <article>
         {props.city && props.country && (
-          <p className="weatherKey">
-            Location:
-            <span className="weatherValue">
+          <div className="weatherProperty">
+            <p className="weatherKey">City: </p>
+            <p className="weatherValue">
               {props.city}, {props.country}
-            </span>
-          </p>
+            </p>
+          </div>
         )}
         {props.temperature && (
-          <p className="weatherKey">
-            Temperature:
-            <span className="weatherValue"> {props.temperature} </span>
-          </p>
+          <div className="weatherProperty">
+            <p className="weatherKey">Temperature: </p>
+            <p className="weatherValue"> {props.temperature} </p>
+          </div>
         )}
+        {props.feelsLike && (
+          <div className="weatherProperty">
+            <p className="weatherKey">Feels Like: </p>
+            <p className="weatherValue"> {props.feelsLike} </p>
+          </div>
+        )}
+
         {props.humidity && (
-          <p className="weatherKey">
-            Humidity:
-            <span className="weatherValue"> {props.humidity} </span>
-          </p>
+          <div className="weatherProperty">
+            <p className="weatherKey">Humidity: </p>
+            <p className="weatherValue"> {props.humidity} </p>
+          </div>
         )}
         {props.description && (
-          <p className="weatherKey">
-            Conditions:
-            <span className="weatherValue"> {props.description} </span>
-          </p>
+          <div className="weatherProperty">
+            <p className="weatherKey">Conditions: </p>
+            <p className="weatherValue"> {props.description} </p>
+          </div>
         )}
         {props.error && <p className="errorMessage">{props.error}</p>}
       </article>
