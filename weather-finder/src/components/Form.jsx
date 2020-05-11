@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Form = (props) => (
-  <form className="locationForm" onSubmit={props.getWeatherData}>
+const Form = ({ getWeatherData }) => (
+  <form className="locationForm" onSubmit={getWeatherData}>
     <input
       className="formInput"
       type="text"
