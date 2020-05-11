@@ -1,0 +1,77 @@
+
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+body, html, #root, .mainArea{
+  height: 100%;
+}
+
+.card{
+  width: 30%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.title{
+  font-size: 25px;
+  color: white;
+}
+
+.subtitle{
+  margin-top: 5px;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  width: 9%;
+}
+
+.navbar{
+  position: fixed;
+  width: 100%;
+}
+
+.messageField{
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 30%;
+  display: flex;
+  position: fixed;
+}
+
+.chatBox{
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+.You{
+  margin-left: 90px;
+}
+
+.nameContainerYou{
+  margin-top: 100px;
+  margin-left: 90px;
+}
+
+.nameContainerStranger{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 415px;
+}
+
+.Stranger{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 90px;
+}
+
+.footer{
+  position: fixed;
+  top: 550px;
+  width: 100%;
+}
+
