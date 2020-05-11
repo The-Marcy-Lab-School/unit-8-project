@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
   Link,
-  useParams
+  useParams,
 } from "react-router-dom";
 import JobSearch from "./JobSearch";
 
@@ -19,7 +19,7 @@ class Results extends React.Component {
     this.state = {
       apiResults: [],
       count: 5,
-      page:1,
+      page: 1,
     };
   }
   render() {
@@ -28,8 +28,7 @@ class Results extends React.Component {
 
     return (
       <Router>
-        <Route path="/" component={JobSearch}>
-        </Route>
+        <Route path="http://localhost:3000/" component={JobSearch}></Route>
       </Router>
     );
   }

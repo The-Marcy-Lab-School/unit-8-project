@@ -9,7 +9,6 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
-import Results from "./Results";
 import GridList from "@material-ui/core/GridList";
 
 const useStyles = makeStyles({
@@ -26,7 +25,6 @@ const useStyles = makeStyles({
     height: 450,
   },
 });
-
 
 function JobSearch() {
   const classes = useStyles();
@@ -83,7 +81,7 @@ function JobSearch() {
             return (
               <React.Fragment key={job.id}>
                 <GridList cellHeight={160} className={classes.gridList}>
-                  <Card id='card'>
+                  <Card id="card">
                     <CardMedia
                       component="img"
                       src={job.company_logo}
@@ -119,7 +117,7 @@ function JobSearch() {
 async function getData(position, location) {
   const url = `https://cors-anywhere.herokuapp.com/jobs.github.com/positions.json?description=${position}&location=${location}`;
   const response = await fetch(url);
-  return await response.json();
+  return await console.log(response.json());
 }
 
 export default JobSearch;
