@@ -76,8 +76,7 @@ function JobSearch() {
       </form>
       <div id="row" className={classes.root}>
         {err && <p>{err}</p>}
-        {jobs &&
-          jobs.map((job) => {
+          {jobs && jobs.map((job) => {
             return (
               <React.Fragment key={job.id}>
                 <GridList cellHeight={160} className={classes.gridList}>
@@ -109,6 +108,7 @@ function JobSearch() {
               </React.Fragment>
             );
           })}
+        
       </div>
     </div>
   );
@@ -117,7 +117,7 @@ function JobSearch() {
 async function getData(position, location) {
   const url = `https://cors-anywhere.herokuapp.com/jobs.github.com/positions.json?description=${position}&location=${location}`;
   const response = await fetch(url);
-  return await console.log(response.json());
+  return await response.json();
 }
 
 export default JobSearch;
