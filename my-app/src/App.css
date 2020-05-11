@@ -1,0 +1,72 @@
+html {
+  font-family: 'Open Sans', serif;
+  background-image: url('https://i.pinimg.com/originals/c7/f1/20/c7f1207ae4ad115da67834190e991339.jpg') !important;
+  background-position: center bottom;
+  background-color: #d4e2ef;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.background {
+  background-color: rgba(255, 255, 255, 0.3);
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 5%;
+  height: 800px;
+  width: 700px;
+}
+
+.header1 {
+  color: #556;
+  font-size: 34px;
+}
+.header2 {
+  color: #556;
+  font-size: 26px;
+}
+
+.locationForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.formInput {
+  font-size: 20px;
+  margin: 15px;
+  text-align: center;
+}
+
+.button {
+  background-color: lavender;
+  font-size: 20px;
+}
+
+.weatherData {
+  padding-top: 5%;
+}
+
+.weatherProperty {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.weatherKey {
+  color: #3f3f3f;
+  font-weight: bold;
+  padding-right: 10px;
+  font-size: 21px;
+}
+.weatherValue {
+  color: #546;
+  font-size: 22px;
+}
