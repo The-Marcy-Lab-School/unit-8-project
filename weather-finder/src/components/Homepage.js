@@ -33,9 +33,9 @@ class HomePage extends Component {
         city: data.name,
         country: data.sys.country,
         weatherIcon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-        temperature: data.main.temp,
-        feelsLike: data.main.feels_like,
-        humidity: data.main.humidity,
+        temperature: Math.round(data.main.temp),
+        feelsLike: Math.round(data.main.feels_like),
+        humidity: Math.round(data.main.humidity),
         description: data.weather[0].main,
         error: '',
       });
