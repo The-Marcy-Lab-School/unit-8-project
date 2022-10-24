@@ -31,6 +31,3 @@ Aside from this, consider the following:
 * Abstract some common logic by creating a custom hook.
 * Add [type checking](https://reactjs.org/docs/typechecking-with-proptypes.html) with `propTypes`.
 * If you find yourself ["prop drilling"](https://kentcdodds.com/blog/prop-drilling/) use Context to maintain some global state.
-
-## Due Date
-Monday, May 11 at 9AM
